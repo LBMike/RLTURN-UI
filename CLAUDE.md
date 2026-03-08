@@ -63,8 +63,13 @@ Lava(BTC 담보 대출 네오뱅크) 수준의 클린하고 미니멀한 웹 대
 
 #### 2. Hero Section
 - 헤드라인: **"Don't Sell XRP. Use IT."**
-- 서브카피: "Secured by institutional-grade XRP custody services"
-- App 스크린샷 이미지 (중앙)
+- 서브카피: "Earn yield in a Savings. Unlock dollars with collateral. Spend globally. Your holdings grow while you sleep."
+- Get Started CTA 버튼
+- 우측 폰 프레임 SVG (`phone-frame.svg`) + Reflection 효과
+
+#### 2.5. Custody Partners Section
+- 텍스트: **"Secured by institutional-grade XRP custody services"**
+- 로고: Ripple Custody, Fireblocks, Zodia Custody
 
 #### 3. Borrowing Section
 - 섹션 타이틀: **"The Fastest and Easiest Borrowing Experience"**
@@ -84,7 +89,12 @@ Lava(BTC 담보 대출 네오뱅크) 수준의 클린하고 미니멀한 웹 대
 - Feature 2: **"Build Wealth Without Selling"**
   - "Compound your earnings over time. The same infrastructure trusted by institutions, now open to everyone."
 
-#### 6. Footer
+#### 6. CTA + Subscribe Section (Footer 상단, 다크 배경 `#0F172A`)
+- **"Join RLTURN Today"** + 서브카피
+- Get Started 버튼 + App Store / Google Play 다운로드 버튼
+- **"Subscribe for Updates"** + 이메일 입력 폼
+
+#### 7. Footer
 - 푸터 링크, 법적 고지 등
 
 ---
@@ -94,18 +104,19 @@ Lava(BTC 담보 대출 네오뱅크) 수준의 클린하고 미니멀한 웹 대
 ### Layout (Lava Reference)
 
 - **Desktop**: 좌측 사이드바 네비게이션 + 중앙 컨텐츠 영역 + 우측 프로모션 배너(optional)
-- **사이드바 메뉴**: Home, Line of Credit, Assets, Payments, Savings Account, Settings
+- **사이드바 메뉴**: Home, Savings, Borrow, Line of Credit, Settings
 - **로그인**: Email + Send Code, Passkey, Social Login (Kakao, Line), Create Account
 - **컨텐츠 영역**: 카드 기반 정보 표시, 클린한 여백, 명확한 정보 계층
 
 ### Page Patterns (Lava Reference)
 
 #### Home (Dashboard)
-- Total Balance (상단)
-- Borrow 버튼 (상단 우측)
-- XRP 카드: Available / Collateral / Buy XRP / Add XRP
-- RLUSD 카드: Available / Savings Account / Add Dollars / Withdraw Dollars
-- Line of Credit 요약: Balance, Interest Rate, Start Borrowing 링크
+- Total Balance (상단, font-mono 3rem)
+- XRP/RLUSD pill-style 탭 전환 (로고 포함) + Receive/Send 버튼
+- Total {Asset} Balance 표시
+- Available 카드 (자산 로고 + 금액)
+- Collateral 카드 (XRP 선택 시 표시, RLUSD는 $0)
+- Saving 카드 (RLUSD 선택 시 표시, XRP는 $0)
 
 #### Line of Credit
 - Currently Borrowing 금액 (대형 표시)
@@ -122,12 +133,21 @@ Lava(BTC 담보 대출 네오뱅크) 수준의 클린하고 미니멀한 웹 대
 - Transfer 섹션: Receive / Send
 - Sell 섹션
 
-#### Savings Account
-- Balance + Current APY 뱃지 (green)
-- Lifetime Earnings / Earnings This Month
-- "earnings auto-compounded monthly" 안내
-- Manage: Deposit Funds / Withdraw Funds
-- Savings Account History 버튼
+#### Borrow
+- Borrow 타이틀
+- APR 뱃지 + 빌린 RLUSD 수량/USD 표시
+- Repay RLUSD / Borrow More RLUSD 버튼
+- Active Collateral: XRP 로고 + 수량/USD
+- Loan Details: Liquidation Price, Borrow Capacity, Available to Borrow
+- Deposit XRP / Withdraw XRP 액션 카드
+
+#### Savings
+- XRP/RLUSD pill-style 탭 전환 (로고 포함)
+- Earning APY 뱃지 (탭별 APY 상이)
+- Earning 잔액 (XRP: 수량 + USD 환산, RLUSD: 달러)
+- Custodied by: Ripple + Zodia 로고 인라인
+- Earnings This Month / Lifetime Interest 카드
+- Deposit / Withdraw 액션 카드 (탭별 동적 라벨)
 
 ### Color Palette
 
@@ -230,16 +250,17 @@ src/
       register/          # 계정 생성
       kyc/               # KYC 인증
     (main)/              # 인증된 앱 셸 (사이드바 레이아웃 공유)
-      home/              # 대시보드 (Total Balance, 자산 요약, LoC 요약)
-      line-of-credit/    # 담보 대출 (Borrowing, Balance Details, Terms, Collateral)
+      home/              # 대시보드 (Total Balance, XRP/RLUSD 탭 전환, 자산 카드)
+      savings/           # Saving Vaults (XRP/RLUSD 탭, APY, Earnings, Deposit/Withdraw)
+      borrow/            # 대출 현황 (빌린 금액, APR, Collateral, Deposit/Withdraw)
+      line-of-credit/    # 담보 대출 상세 (Balance Details, Terms, Collateral)
       assets/            # 자산 관리 (XRP/RLUSD 탭, Buy/Transfer/Sell)
       payments/          # 거래내역
-      savings/           # Saving Vaults (XRP/RLUSD 예치, APY, Earnings)
       settings/          # 설정
     api/                 # Route Handlers
   components/
     ui/                  # shadcn/ui 컴포넌트
-    landing/             # 랜딩 페이지 섹션 컴포넌트 (Hero, Features, Footer)
+    landing/             # 랜딩 페이지 섹션 컴포넌트 (Hero, Custody, Borrowing, Lending, Savings, CTA, Footer)
     layout/              # Sidebar, AppShell, PageHeader
     shared/              # 공용 비즈니스 컴포넌트
     charts/              # 차트 컴포넌트
