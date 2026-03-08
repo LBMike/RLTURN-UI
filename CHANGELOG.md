@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.4.0] - 2026-03-09
+
+### Added
+- `VideoBanner` - 랜딩 최상단 풀스크린 브랜드 영상 섹션 추가
+  - `public/videos/landing-brand.mp4` 자동 재생, 무음, 반복 재생
+  - 반투명 블랙 오버레이 위 중앙 정렬 카피 배치
+  - `Inside RLTURN` eyebrow + 브랜드 메시지 + `Get started` CTA 추가
+
+### Changed
+- 랜딩 페이지 섹션 순서 재구성
+  - `LandingHeader -> VideoBanner -> HeroSection -> BorrowingSection -> LendingSection -> SavingsSection -> LandingFooter`
+  - `src/app/page.tsx`와 `src/app/(landing)/page.tsx`를 동일 구조로 정렬
+- `LandingHeader` - 무색 반투명 글래스 헤더로 리디자인
+  - 블루 tint 제거
+  - 흰 외곽선과 inset 하이라이트 제거
+  - 영상 위에서 읽히는 중립 shadow와 blur만 유지
+- `HeroSection` - CTA를 제거하고 메시지와 디바이스 목업 중심 구조로 단순화
+- `SavingsSection` - 와이어프레임 기준 2-column editorial layout으로 재구성
+  - 좌측 2개 메시지 블록
+  - 우측 Savings mockup card
+- `BorrowingSection` - custody trust row를 섹션 내부 상단에 유지하도록 정리
+
+### Removed
+- `CustodySection` - 중복되던 독립 custody 섹션 제거
+  - `Secured by institutional-grade XRP custody services` 메시지는 `BorrowingSection`에만 유지
+
+---
+
 ## [0.3.0] - 2026-03-08
 
 ### Changed
