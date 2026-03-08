@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.2.0] - 2026-03-08
+
+### Added
+- `BorrowPositionSheet` - 대출 포지션 상세 뷰 (Figma 12:2687)
+  - Borrowing RLUSD 헤더, Current Balance + APR 표시
+  - Liquidation Risk 프로그레스 바 ("52% Safe" 뱃지)
+  - Repay RLUSD / Borrow More RLUSD 액션 버튼
+  - Active Collateral 섹션 (XRP, Liquidation Price, Borrow Capacity, Available to Borrow)
+  - Manage Position 하단 CTA
+- `SavingsPositionSheet` - 세이빙 포지션 상세 뷰 (Figma 13:3)
+  - Saving RLUSD 헤더, Earning APR 뱃지
+  - 대형 잔액 표시 (blurred decimals 효과)
+  - Custodied by Ripple/Zodia 표시
+  - Total Balance / Lifetime Interest 통계 행
+  - Balances: Available (XRPL) + Earning (APR + XRPL)
+  - Deposit RLUSD 하단 CTA
+
+### Changed
+- Line of Credit 페이지: "Start Borrowing" 버튼 클릭 시 BorrowPositionSheet 열림
+- Savings 페이지: Balance 클릭 시 SavingsPositionSheet 열림
+
+---
+
 ## [0.1.0] - 2026-03-08
 
 ### Added

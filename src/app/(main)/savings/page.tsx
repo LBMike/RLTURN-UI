@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import {
   ArrowDownLeft,
   ArrowUpRight,
@@ -5,12 +8,19 @@ import {
   DollarSign,
 } from "lucide-react";
 import { mockData } from "@/lib/mock-data";
+import { SavingsPositionSheet } from "@/components/savings/SavingsPositionSheet";
 
 export default function SavingsPage() {
   const { savings } = mockData;
+  const [positionOpen, setPositionOpen] = useState(false);
 
   return (
     <div className="max-w-2xl">
+      <SavingsPositionSheet
+        open={positionOpen}
+        onClose={() => setPositionOpen(false)}
+      />
+
       {/* Header Row */}
       <div className="flex items-center justify-between">
         <h1 className="text-[2.25rem] font-bold leading-tight">
@@ -22,7 +32,11 @@ export default function SavingsPage() {
       </div>
 
       {/* Balance Section */}
-      <div className="mt-6">
+      <button
+        type="button"
+        onClick={() => setPositionOpen(true)}
+        className="mt-6 w-full text-left transition-opacity hover:opacity-80"
+      >
         <p className="text-sm text-[var(--text-secondary)]">Balance</p>
         <div className="flex items-center mt-1">
           <p className="text-[2.25rem] font-bold font-mono leading-tight tracking-tight">
@@ -32,7 +46,7 @@ export default function SavingsPage() {
             Current APY {savings.currentApy}%
           </span>
         </div>
-      </div>
+      </button>
 
       {/* Earnings Row */}
       <div className="mt-6 border border-[var(--border)] rounded-[12px] overflow-hidden">
