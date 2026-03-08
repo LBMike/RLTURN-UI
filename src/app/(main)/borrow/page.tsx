@@ -24,7 +24,9 @@ export default function BorrowPage() {
           </span>
         </div>
         <p className="mt-3 font-mono text-[2.25rem] font-bold leading-tight tracking-tight">
-          {borrow.borrowedAmount} RLUSD
+          {borrow.borrowedAmount}{" "}
+          <Image src="/rlusd.svg" alt="RLUSD" width={32} height={32} className="inline-block h-8 w-8 align-baseline mb-0.5 ml-1" />
+          RLUSD
         </p>
         <p className="mt-1 text-sm text-[var(--text-tertiary)] font-mono">
           ${borrow.borrowedAmountUsd}
