@@ -115,7 +115,7 @@ export function BorrowPositionSheet({
 
           {/* Action Buttons */}
           <div className="mt-6 flex flex-col gap-3">
-            <button className="h-14 w-full rounded-full bg-primary-dark font-bold text-white shadow-[0px_4px_20px_-2px_rgba(0,0,0,0.05)] transition-opacity hover:opacity-90">
+            <button className="h-14 w-full rounded-full bg-primary font-bold text-white shadow-[0px_4px_20px_-2px_rgba(0,0,0,0.05)] transition-colors hover:brightness-110">
               Repay RLUSD
             </button>
             <button className="h-14 w-full rounded-full border border-border bg-white font-bold text-text-primary shadow-sm transition-colors hover:bg-background-secondary">
@@ -206,7 +206,7 @@ export function BorrowPositionSheet({
           >
             <ArrowLeft size={18} />
           </button>
-          <button className="flex h-14 flex-1 items-center justify-center rounded-full bg-primary-dark font-bold text-white shadow-[0px_10px_30px_-5px_rgba(0,0,0,0.1)] transition-opacity hover:opacity-90">
+          <button className="flex h-14 flex-1 items-center justify-center rounded-full bg-primary font-bold text-white shadow-[0px_10px_30px_-5px_rgba(0,0,0,0.1)] transition-colors hover:brightness-110">
             Manage Position
           </button>
         </div>

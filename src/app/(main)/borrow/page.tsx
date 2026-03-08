@@ -35,7 +35,7 @@ export default function BorrowPage() {
 
       {/* Repay / Borrow More Buttons */}
       <div className="mt-8 flex gap-3">
-        <button className="flex-1 h-12 rounded-full bg-[#23292F] text-white text-sm font-semibold transition-opacity hover:opacity-90">
+        <button className="flex-1 h-12 rounded-full bg-primary text-white text-sm font-semibold transition-colors hover:brightness-110">
           Repay RLUSD
         </button>
         <button className="flex-1 h-12 rounded-full border border-[var(--border)] text-sm font-semibold text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-colors">

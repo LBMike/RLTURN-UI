@@ -46,7 +46,7 @@ export default function LineOfCreditPage() {
           <button
             type="button"
             onClick={() => setBorrowOpen(true)}
-            className="h-12 rounded-full bg-primary-dark px-8 text-[0.875rem] font-semibold text-white transition-opacity hover:opacity-90"
+            className="h-12 rounded-full bg-primary px-8 text-[0.875rem] font-semibold text-white transition-colors hover:brightness-110"
           >
             Start Borrowing
           </button>

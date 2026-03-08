@@ -60,7 +60,7 @@ export default function LoginPage() {
 
           <button
             type="button"
-            className="mt-4 w-full h-12 bg-[#23292F] text-white rounded-full text-sm font-semibold transition-colors hover:bg-[#1a1f24] active:bg-[#111518] cursor-pointer"
+            className="mt-4 w-full h-12 bg-primary text-white rounded-full text-sm font-semibold transition-colors hover:brightness-110 active:brightness-90 cursor-pointer"
           >
             Send Code
           </button>

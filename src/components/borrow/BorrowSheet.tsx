@@ -78,7 +78,7 @@ export function BorrowSheet({ open, onClose, onContinue }: BorrowSheetProps) {
         <div className="px-6 pb-6">
           <button
             onClick={() => onContinue(amount)}
-            className="h-12 w-full rounded-full bg-[#23292f] text-base font-semibold text-white transition-colors hover:bg-[#1a1f24]"
+            className="h-12 w-full rounded-full bg-primary text-base font-semibold text-white transition-colors hover:brightness-110"
           >
             Continue
           </button>

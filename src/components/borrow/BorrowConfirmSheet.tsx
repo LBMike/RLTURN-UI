@@ -97,7 +97,7 @@ export function BorrowConfirmSheet({
         <div className="px-6 pb-6">
           <button
             onClick={onConfirm}
-            className="h-12 w-full rounded-full bg-[#23292f] text-base font-semibold text-white transition-colors hover:bg-[#1a1f24]"
+            className="h-12 w-full rounded-full bg-primary text-base font-semibold text-white transition-colors hover:brightness-110"
           >
             Confirm
           </button>
