@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
     <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-20 pb-0">
       <div className="mx-auto grid w-full max-w-[1280px] items-center gap-8 lg:grid-cols-2" style={{ transform: "translateX(-75px)" }}>
-        {/* Left — Text & CTA */}
+        {/* Left — Text */}
         <div className="max-w-[540px]">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -30,22 +29,6 @@ export default function HeroSection() {
             Earn yield in a Savings. Unlock dollars with collateral.
             Spend globally. Your holdings grow while you sleep.
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-            className="mt-10"
-          >
-            <a
-              href="/register"
-              className="inline-flex h-14 items-center gap-3 rounded-full bg-primary px-8 text-base font-semibold text-white transition-all hover:brightness-110"
-            >
-              Get started
-              <ArrowRight size={18} strokeWidth={2.5} />
-            </a>
-          </motion.div>
-
         </div>
 
         {/* Right — Phone Mockup */}

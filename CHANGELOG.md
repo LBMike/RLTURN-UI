@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.0] - 2026-03-08
+
+### Changed
+- `HeroSection` - 랜딩 페이지 히어로 섹션 레이아웃 변경 (Figma 2:2)
+  - 중앙 정렬 → 2-column 레이아웃 (텍스트 좌측, 목업 우측)
+  - 웹 대시보드 프리뷰 제거
+  - Borrow Position 모바일 폰 목업으로 대체 (폰 프레임 + Borrowing RLUSD UI)
+  - $8,456.03 잔액, 2.92% APR, Liquidation Risk 바, Active Collateral XRP 표시
+
+---
+
 ## [0.2.0] - 2026-03-08
 
 ### Added

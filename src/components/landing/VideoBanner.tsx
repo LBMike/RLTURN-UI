@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export default function VideoBanner() {
   const prefersReducedMotion = useReducedMotion();
@@ -42,6 +43,21 @@ export default function VideoBanner() {
             A quiet brand moment between the promise and the product. Built to
             make RLTURN feel secure, global, and always in motion.
           </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="mt-10"
+          >
+            <a
+              href="/register"
+              className="inline-flex h-14 items-center gap-3 rounded-full bg-primary px-8 text-base font-semibold text-white transition-all hover:brightness-110"
+            >
+              Get started
+              <ArrowRight size={18} strokeWidth={2.5} />
+            </a>
+          </motion.div>
         </div>
       </motion.div>
     </section>
