@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function LandingHeader() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
-      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6" style={{ transform: "translateX(-75px)" }}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image

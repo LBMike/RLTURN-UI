@@ -16,6 +16,19 @@ export const mockData = {
     available: "5,250.00",
     savings: "2,100.00",
   },
+  borrow: {
+    borrowedAmount: "20,512.31",
+    borrowedAmountUsd: "80,421.52",
+    apr: "4.5",
+    collateral: {
+      asset: "XRP",
+      amount: "20,512.31",
+      amountUsd: "80,421.52",
+    },
+    liquidationPrice: "0.86321",
+    borrowCapacity: "37,521.01",
+    availableToBorrow: "7,544.06",
+  },
   lineOfCredit: {
     currentlyBorrowing: "3,500.00",
     borrowableMore: "4,200.00",
@@ -35,5 +48,20 @@ export const mockData = {
     currentApy: "6.5",
     lifetimeEarnings: "342.18",
     earningsThisMonth: "48.25",
+    xrp: {
+      earning: "40,512.31",
+      earningUsd: "80,421.52",
+      apy: "4.5",
+      earningsThisMonth: "1,512.31",
+      earningsThisMonthUsd: "2,421.52",
+      lifetimeInterest: "512.31",
+      lifetimeInterestUsd: "1,021.52",
+    },
+    rlusd: {
+      earning: "2,100.00",
+      apy: "6.5",
+      earningsThisMonth: "48.25",
+      lifetimeInterest: "342.18",
+    },
   },
 };

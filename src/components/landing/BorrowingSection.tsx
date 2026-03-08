@@ -1,11 +1,30 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Zap, ShieldCheck, Clock } from "lucide-react";
 
 export default function BorrowingSection() {
   return (
     <section id="borrowing" className="py-24 md:py-32">
+      {/* Custody Partners */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="mx-auto mb-32 flex max-w-[1280px] flex-col items-center border-t border-b border-border px-6 py-20"
+      >
+        <p className="text-[36px] font-semibold text-text-primary">
+          Secured by institutional-grade XRP custody services
+        </p>
+        <div className="mt-8 flex items-center gap-12">
+          <Image src="/ripple-custody.svg" alt="Ripple Custody" width={140} height={60} className="h-[75px] w-auto" />
+          <Image src="/fireblock.svg" alt="Fireblocks" width={140} height={60} className="h-[75px] w-auto" />
+          <Image src="/zodia.svg" alt="Zodia Custody" width={140} height={60} className="h-[75px] w-auto" />
+        </div>
+      </motion.div>
+
       <div className="mx-auto max-w-[1280px] px-6">
         {/* Section Title */}
         <motion.h2

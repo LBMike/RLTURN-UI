@@ -1,42 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const footerLinks = [
-  {
-    title: "Product",
-    links: [
-      { label: "Line of Credit", href: "/line-of-credit" },
-      { label: "Savings", href: "/savings" },
-      { label: "Assets", href: "/assets" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Blog", href: "/blog" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Terms", href: "/terms" },
-      { label: "Privacy", href: "/privacy" },
-      { label: "Compliance", href: "/compliance" },
-    ],
-  },
-];
-
-export default function LandingFooter() {
+export default function CtaSection() {
   return (
-    <footer className="bg-[#0F172A]">
-      {/* CTA Section */}
+    <section className="bg-[#0F172A] text-white">
       <div className="mx-auto max-w-[1280px] px-6 py-24 md:py-32">
+        {/* Join RLTURN */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,13 +15,14 @@ export default function LandingFooter() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center"
         >
-          <h2 className="text-[2.25rem] font-bold text-white md:text-[2.75rem]">
+          <h2 className="text-[2.25rem] font-bold md:text-[2.75rem]">
             Join RLTURN Today
           </h2>
           <p className="mt-4 max-w-lg text-lg text-white/60">
             Access the fastest and most secure XRP-backed neobank system.
           </p>
 
+          {/* Get Started */}
           <a
             href="/register"
             className="mt-10 inline-flex h-14 items-center gap-3 rounded-full border border-white/20 bg-white/10 px-8 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
@@ -59,12 +31,14 @@ export default function LandingFooter() {
             <ArrowRight size={18} strokeWidth={2.5} />
           </a>
 
+          {/* Divider */}
           <div className="mt-10 flex items-center gap-4">
             <div className="h-px w-16 bg-white/20" />
             <span className="text-sm text-white/40">or download the app</span>
             <div className="h-px w-16 bg-white/20" />
           </div>
 
+          {/* App Store Buttons */}
           <div className="mt-6 flex items-center gap-4">
             <a
               href="#"
@@ -76,7 +50,7 @@ export default function LandingFooter() {
               </svg>
               <div className="text-left">
                 <p className="text-[10px] leading-tight text-white/60">Download on the</p>
-                <p className="text-sm font-semibold leading-tight text-white">App Store</p>
+                <p className="text-sm font-semibold leading-tight">App Store</p>
               </div>
             </a>
             <a
@@ -91,13 +65,13 @@ export default function LandingFooter() {
               </svg>
               <div className="text-left">
                 <p className="text-[10px] leading-tight text-white/60">GET IT ON</p>
-                <p className="text-sm font-semibold leading-tight text-white">Google Play</p>
+                <p className="text-sm font-semibold leading-tight">Google Play</p>
               </div>
             </a>
           </div>
         </motion.div>
 
-        {/* Subscribe */}
+        {/* Subscribe Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +79,7 @@ export default function LandingFooter() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-24 flex flex-col items-center text-center"
         >
-          <h3 className="text-[1.875rem] font-bold text-white">Subscribe for Updates</h3>
+          <h3 className="text-[1.875rem] font-bold">Subscribe for Updates</h3>
           <form
             onSubmit={(e) => e.preventDefault()}
             className="mt-6 flex w-full max-w-md items-center rounded-full border border-white/20 bg-white/5 p-1.5"
@@ -124,85 +98,6 @@ export default function LandingFooter() {
           </form>
         </motion.div>
       </div>
-
-      {/* Footer Links */}
-      <div className="border-t border-[#334155]">
-      <div className="mx-auto max-w-[1280px] px-6 py-16">
-        <div className="flex flex-col gap-12 md:flex-row md:justify-between">
-          {/* Logo + Description */}
-          <div className="max-w-xs">
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/logo.webp"
-                alt="RLTURN Logo"
-                width={32}
-                height={32}
-                className="h-8 w-8 brightness-0 invert"
-              />
-              <span className="text-lg font-bold text-white">RLTURN</span>
-            </Link>
-            <p className="mt-4 text-sm leading-relaxed text-[#94A3B8]">
-              Institutional-grade XRP-backed lending and savings. Borrow RLUSD,
-              earn real yield, and manage your digital assets.
-            </p>
-          </div>
-
-          {/* Link Columns */}
-          <div className="flex flex-wrap gap-16">
-            {footerLinks.map((column) => (
-              <div key={column.title}>
-                <p className="text-sm font-semibold text-white">{column.title}</p>
-                <ul className="mt-4 space-y-3">
-                  {column.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-sm text-[#94A3B8] transition-colors hover:text-white"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#334155] pt-8 md:flex-row">
-          <p className="text-xs text-[#64748B]">
-            &copy; 2026 RLTURN. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-[#64748B] transition-colors hover:text-white"
-            >
-              Twitter
-            </a>
-            <a
-              href="https://discord.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-[#64748B] transition-colors hover:text-white"
-            >
-              Discord
-            </a>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-[#64748B] transition-colors hover:text-white"
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-      </div>
-    </footer>
+    </section>
   );
 }

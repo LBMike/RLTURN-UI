@@ -5,19 +5,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Home,
-  Percent,
-  Wallet,
-  ArrowUpDown,
   TrendingUp,
+  Banknote,
+  CreditCard,
   Settings,
 } from "lucide-react";
 
 const navItems = [
   { href: "/home", label: "Home", icon: Home },
-  { href: "/line-of-credit", label: "Line of Credit", icon: Percent },
-  { href: "/assets", label: "Assets", icon: Wallet },
-  { href: "/payments", label: "Payments", icon: ArrowUpDown },
-  { href: "/savings", label: "Savings Account", icon: TrendingUp },
+  { href: "/savings", label: "Savings", icon: TrendingUp },
+  { href: "/borrow", label: "Borrow", icon: Banknote },
+  { href: "/line-of-credit", label: "Line of Credit", icon: CreditCard },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
