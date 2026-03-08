@@ -51,7 +51,7 @@ export default function VideoBanner() {
             className="mt-10"
           >
             <a
-              href="/register"
+              href="/home"
               className="inline-flex h-14 items-center gap-3 rounded-full bg-primary px-8 text-base font-semibold text-white transition-all hover:brightness-110"
             >
               Get started

@@ -24,7 +24,7 @@ export default function CtaSection() {
 
           {/* Get Started */}
           <a
-            href="/register"
+            href="/home"
             className="mt-10 inline-flex h-14 items-center gap-3 rounded-full border border-white/20 bg-white/10 px-8 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
           >
             Get started
