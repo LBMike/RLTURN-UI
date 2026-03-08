@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import {
   ArrowDownLeft,
@@ -7,9 +8,39 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { mockData } from "@/lib/mock-data";
+import { BorrowSheet } from "@/components/borrow/BorrowSheet";
+import { BorrowConfirmSheet } from "@/components/borrow/BorrowConfirmSheet";
+import { RepaySheet } from "@/components/borrow/RepaySheet";
+import { RepayConfirmSheet } from "@/components/borrow/RepayConfirmSheet";
+import { DepositXrpSheet } from "@/components/borrow/DepositXrpSheet";
+import { DepositXrpConfirmSheet } from "@/components/borrow/DepositXrpConfirmSheet";
+import { WithdrawXrpSheet } from "@/components/borrow/WithdrawXrpSheet";
+import { WithdrawXrpConfirmSheet } from "@/components/borrow/WithdrawXrpConfirmSheet";
 
 export default function BorrowPage() {
   const { borrow } = mockData;
+
+  const [repayOpen, setRepayOpen] = useState(false);
+  const [repayConfirmOpen, setRepayConfirmOpen] = useState(false);
+  const [borrowMoreOpen, setBorrowMoreOpen] = useState(false);
+  const [borrowMoreConfirmOpen, setBorrowMoreConfirmOpen] = useState(false);
+  const [depositXrpOpen, setDepositXrpOpen] = useState(false);
+  const [depositXrpConfirmOpen, setDepositXrpConfirmOpen] = useState(false);
+  const [withdrawXrpOpen, setWithdrawXrpOpen] = useState(false);
+  const [withdrawXrpConfirmOpen, setWithdrawXrpConfirmOpen] = useState(false);
+  const [actionAmount, setActionAmount] = useState("");
+
+  const closeAll = () => {
+    setRepayOpen(false);
+    setRepayConfirmOpen(false);
+    setBorrowMoreOpen(false);
+    setBorrowMoreConfirmOpen(false);
+    setDepositXrpOpen(false);
+    setDepositXrpConfirmOpen(false);
+    setWithdrawXrpOpen(false);
+    setWithdrawXrpConfirmOpen(false);
+    setActionAmount("");
+  };
 
   return (
     <div className="max-w-2xl">
@@ -35,10 +66,16 @@ export default function BorrowPage() {
 
       {/* Repay / Borrow More Buttons */}
       <div className="mt-8 flex gap-3">
-        <button className="flex-1 h-12 rounded-full bg-primary text-white text-sm font-semibold transition-colors hover:brightness-110">
+        <button
+          onClick={() => setRepayOpen(true)}
+          className="flex-1 h-12 rounded-full bg-primary text-white text-sm font-semibold transition-colors hover:brightness-110"
+        >
           Repay RLUSD
         </button>
-        <button className="flex-1 h-12 rounded-full border border-[var(--border)] text-sm font-semibold text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-colors">
+        <button
+          onClick={() => setBorrowMoreOpen(true)}
+          className="flex-1 h-12 rounded-full border border-[var(--border)] text-sm font-semibold text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-colors"
+        >
           Borrow More RLUSD
         </button>
       </div>
@@ -89,7 +126,10 @@ export default function BorrowPage() {
       </div>
 
       {/* Deposit / Withdraw XRP */}
-      <div className="border border-[var(--border)] rounded-[12px] p-5 mt-3 flex items-center justify-between cursor-pointer hover:bg-[var(--background-secondary)] transition-colors">
+      <div
+        onClick={() => setDepositXrpOpen(true)}
+        className="border border-[var(--border)] rounded-[12px] p-5 mt-3 flex items-center justify-between cursor-pointer hover:bg-[var(--background-secondary)] transition-colors"
+      >
         <div className="flex items-center gap-3">
           <ArrowDownLeft className="w-5 h-5 text-[var(--text-tertiary)]" />
           <p className="text-sm font-medium">Deposit XRP</p>
@@ -97,13 +137,96 @@ export default function BorrowPage() {
         <ChevronRight className="w-5 h-5 text-[var(--text-tertiary)]" />
       </div>
 
-      <div className="border border-[var(--border)] rounded-[12px] p-5 mt-3 flex items-center justify-between cursor-pointer hover:bg-[var(--background-secondary)] transition-colors">
+      <div
+        onClick={() => setWithdrawXrpOpen(true)}
+        className="border border-[var(--border)] rounded-[12px] p-5 mt-3 flex items-center justify-between cursor-pointer hover:bg-[var(--background-secondary)] transition-colors"
+      >
         <div className="flex items-center gap-3">
           <ArrowUpRight className="w-5 h-5 text-[var(--text-tertiary)]" />
           <p className="text-sm font-medium">Withdraw XRP</p>
         </div>
         <ChevronRight className="w-5 h-5 text-[var(--text-tertiary)]" />
       </div>
+
+      {/* Repay Flow */}
+      <RepaySheet
+        open={repayOpen}
+        onClose={closeAll}
+        onContinue={(amt) => {
+          setActionAmount(amt);
+          setRepayOpen(false);
+          setRepayConfirmOpen(true);
+        }}
+      />
+      <RepayConfirmSheet
+        open={repayConfirmOpen}
+        amount={actionAmount}
+        onClose={closeAll}
+        onBack={() => {
+          setRepayConfirmOpen(false);
+          setRepayOpen(true);
+        }}
+        onConfirm={closeAll}
+      />
+
+      {/* Borrow More Flow */}
+      <BorrowSheet
+        open={borrowMoreOpen}
+        onClose={closeAll}
+        onContinue={(amt) => {
+          setActionAmount(amt);
+          setBorrowMoreOpen(false);
+          setBorrowMoreConfirmOpen(true);
+        }}
+      />
+      <BorrowConfirmSheet
+        open={borrowMoreConfirmOpen}
+        amount={actionAmount}
+        onClose={closeAll}
+        onConfirm={closeAll}
+      />
+
+      {/* Deposit XRP Flow */}
+      <DepositXrpSheet
+        open={depositXrpOpen}
+        onClose={closeAll}
+        onContinue={(amt) => {
+          setActionAmount(amt);
+          setDepositXrpOpen(false);
+          setDepositXrpConfirmOpen(true);
+        }}
+      />
+      <DepositXrpConfirmSheet
+        open={depositXrpConfirmOpen}
+        amount={actionAmount}
+        onClose={closeAll}
+        onBack={() => {
+          setDepositXrpConfirmOpen(false);
+          setDepositXrpOpen(true);
+        }}
+        onConfirm={closeAll}
+      />
+
+      {/* Withdraw XRP Flow */}
+      <WithdrawXrpSheet
+        open={withdrawXrpOpen}
+        onClose={closeAll}
+        onContinue={(amt) => {
+          setActionAmount(amt);
+          setWithdrawXrpOpen(false);
+          setWithdrawXrpConfirmOpen(true);
+        }}
+      />
+      <WithdrawXrpConfirmSheet
+        open={withdrawXrpConfirmOpen}
+        amount={actionAmount}
+        onClose={closeAll}
+        onBack={() => {
+          setWithdrawXrpConfirmOpen(false);
+          setWithdrawXrpOpen(true);
+        }}
+        onConfirm={closeAll}
+      />
     </div>
   );
 }

@@ -10,10 +10,28 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { mockData } from "@/lib/mock-data";
+import { SavingsDepositSheet } from "@/components/savings/SavingsDepositSheet";
+import { SavingsDepositConfirmSheet } from "@/components/savings/SavingsDepositConfirmSheet";
+import { SavingsWithdrawSheet } from "@/components/savings/SavingsWithdrawSheet";
+import { SavingsWithdrawConfirmSheet } from "@/components/savings/SavingsWithdrawConfirmSheet";
 
 export default function SavingsPage() {
   const [activeTab, setActiveTab] = useState<"xrp" | "rlusd">("xrp");
   const { savings } = mockData;
+
+  const [depositOpen, setDepositOpen] = useState(false);
+  const [depositConfirmOpen, setDepositConfirmOpen] = useState(false);
+  const [withdrawOpen, setWithdrawOpen] = useState(false);
+  const [withdrawConfirmOpen, setWithdrawConfirmOpen] = useState(false);
+  const [actionAmount, setActionAmount] = useState("");
+
+  const closeAll = () => {
+    setDepositOpen(false);
+    setDepositConfirmOpen(false);
+    setWithdrawOpen(false);
+    setWithdrawConfirmOpen(false);
+    setActionAmount("");
+  };
 
   const isXrp = activeTab === "xrp";
   const data = isXrp ? savings.xrp : savings.rlusd;
@@ -122,7 +140,10 @@ export default function SavingsPage() {
       </div>
 
       {/* Manage Actions */}
-      <div className="border border-[var(--border)] rounded-[12px] p-5 mt-6 flex items-center justify-between cursor-pointer hover:bg-[var(--background-secondary)] transition-colors">
+      <div
+        onClick={() => setDepositOpen(true)}
+        className="border border-[var(--border)] rounded-[12px] p-5 mt-6 flex items-center justify-between cursor-pointer hover:bg-[var(--background-secondary)] transition-colors"
+      >
         <div className="flex items-center gap-3">
           <ArrowDownLeft className="w-5 h-5 text-[var(--text-tertiary)]" />
           <p className="text-sm font-medium">Deposit {isXrp ? "XRP" : "RLUSD"}</p>
@@ -130,13 +151,60 @@ export default function SavingsPage() {
         <ChevronRight className="w-5 h-5 text-[var(--text-tertiary)]" />
       </div>
 
-      <div className="border border-[var(--border)] rounded-[12px] p-5 mt-3 flex items-center justify-between cursor-pointer hover:bg-[var(--background-secondary)] transition-colors">
+      <div
+        onClick={() => setWithdrawOpen(true)}
+        className="border border-[var(--border)] rounded-[12px] p-5 mt-3 flex items-center justify-between cursor-pointer hover:bg-[var(--background-secondary)] transition-colors"
+      >
         <div className="flex items-center gap-3">
           <ArrowUpRight className="w-5 h-5 text-[var(--text-tertiary)]" />
           <p className="text-sm font-medium">Withdraw {isXrp ? "XRP" : "RLUSD"}</p>
         </div>
         <ChevronRight className="w-5 h-5 text-[var(--text-tertiary)]" />
       </div>
+
+      {/* Sheets */}
+      <SavingsDepositSheet
+        open={depositOpen}
+        asset={activeTab}
+        onClose={closeAll}
+        onContinue={(amt) => {
+          setActionAmount(amt);
+          setDepositOpen(false);
+          setDepositConfirmOpen(true);
+        }}
+      />
+      <SavingsDepositConfirmSheet
+        open={depositConfirmOpen}
+        asset={activeTab}
+        amount={actionAmount}
+        onClose={closeAll}
+        onBack={() => {
+          setDepositConfirmOpen(false);
+          setDepositOpen(true);
+        }}
+        onConfirm={closeAll}
+      />
+      <SavingsWithdrawSheet
+        open={withdrawOpen}
+        asset={activeTab}
+        onClose={closeAll}
+        onContinue={(amt) => {
+          setActionAmount(amt);
+          setWithdrawOpen(false);
+          setWithdrawConfirmOpen(true);
+        }}
+      />
+      <SavingsWithdrawConfirmSheet
+        open={withdrawConfirmOpen}
+        asset={activeTab}
+        amount={actionAmount}
+        onClose={closeAll}
+        onBack={() => {
+          setWithdrawConfirmOpen(false);
+          setWithdrawOpen(true);
+        }}
+        onConfirm={closeAll}
+      />
     </div>
   );
 }
