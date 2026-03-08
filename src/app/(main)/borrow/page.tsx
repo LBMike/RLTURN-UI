@@ -71,16 +71,16 @@ export default function BorrowPage() {
       {/* Loan Details */}
       <div className="mt-3 border border-[var(--border)] rounded-[12px] p-5">
         <div className="flex items-center justify-between py-2">
+          <span className="text-sm text-[var(--text-secondary)]">Borrow Capacity</span>
+          <span className="font-mono text-sm font-medium">${borrow.borrowCapacity}</span>
+        </div>
+        <div className="flex items-center justify-between py-2">
           <span className="text-sm text-[var(--text-secondary)]">Liquidation Price</span>
           <span className="font-mono text-sm font-medium">${borrow.liquidationPrice}</span>
         </div>
         <div className="flex items-center justify-between py-2">
           <span className="text-sm text-[var(--text-secondary)]">LTV Ratio</span>
           <span className="font-mono text-sm font-medium text-[#22C55E]">{borrow.ltvRatio}</span>
-        </div>
-        <div className="flex items-center justify-between py-2">
-          <span className="text-sm text-[var(--text-secondary)]">Borrow Capacity</span>
-          <span className="font-mono text-sm font-medium">${borrow.borrowCapacity}</span>
         </div>
         <div className="flex items-center justify-between py-2">
           <span className="text-sm text-[var(--text-secondary)]">Available to Borrow</span>
