@@ -10,7 +10,7 @@ interface BorrowSheetProps {
 }
 
 export function BorrowSheet({ open, onClose, onContinue }: BorrowSheetProps) {
-  const [amount, setAmount] = useState("1000");
+  const [amount, setAmount] = useState("");
 
   if (!open) return null;
 
@@ -45,7 +45,7 @@ export function BorrowSheet({ open, onClose, onContinue }: BorrowSheetProps) {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               className="ml-2 flex-1 bg-transparent text-lg font-semibold outline-none"
-              placeholder="0"
+              placeholder="0.00"
             />
             <button className="rounded-[8px] border px-3 py-1 text-sm font-medium hover:bg-[#f8fafc]">
               Max
@@ -61,7 +61,7 @@ export function BorrowSheet({ open, onClose, onContinue }: BorrowSheetProps) {
                 </span>
                 <Info className="h-4 w-4 text-[#22c55e]" />
               </div>
-              <span className="font-mono text-sm font-semibold">7.5%</span>
+              <span className="font-mono text-sm font-semibold">{amount ? "7.5%" : "N/A"}</span>
             </div>
           </div>
 

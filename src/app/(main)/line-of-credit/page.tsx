@@ -3,17 +3,18 @@
 import { useState } from "react";
 import { Clock, Info, ArrowRight } from "lucide-react";
 import { mockData } from "@/lib/mock-data";
-import { BorrowPositionSheet } from "@/components/borrow/BorrowPositionSheet";
+import { BorrowSheet } from "@/components/borrow/BorrowSheet";
 
 export default function LineOfCreditPage() {
   const loc = mockData.lineOfCredit;
-  const [positionOpen, setPositionOpen] = useState(false);
+  const [borrowOpen, setBorrowOpen] = useState(false);
 
   return (
     <div className="max-w-[960px]">
-      <BorrowPositionSheet
-        open={positionOpen}
-        onClose={() => setPositionOpen(false)}
+      <BorrowSheet
+        open={borrowOpen}
+        onClose={() => setBorrowOpen(false)}
+        onContinue={() => setBorrowOpen(false)}
       />
 
       {/* Header row */}
@@ -31,7 +32,7 @@ export default function LineOfCreditPage() {
           </button>
           <button
             type="button"
-            onClick={() => setPositionOpen(true)}
+            onClick={() => setBorrowOpen(true)}
             className="h-12 rounded-full bg-primary-dark px-8 text-[0.875rem] font-semibold text-white transition-opacity hover:opacity-90"
           >
             Start Borrowing
