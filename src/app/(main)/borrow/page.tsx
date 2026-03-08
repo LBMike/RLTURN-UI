@@ -75,6 +75,10 @@ export default function BorrowPage() {
           <span className="font-mono text-sm font-medium">${borrow.liquidationPrice}</span>
         </div>
         <div className="flex items-center justify-between py-2">
+          <span className="text-sm text-[var(--text-secondary)]">LTV Ratio</span>
+          <span className="font-mono text-sm font-medium text-[#22C55E]">{borrow.ltvRatio}</span>
+        </div>
+        <div className="flex items-center justify-between py-2">
           <span className="text-sm text-[var(--text-secondary)]">Borrow Capacity</span>
           <span className="font-mono text-sm font-medium">${borrow.borrowCapacity}</span>
         </div>

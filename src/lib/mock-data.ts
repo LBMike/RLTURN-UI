@@ -26,6 +26,7 @@ export const mockData = {
       amountUsd: "80,421.52",
     },
     liquidationPrice: "0.86321",
+    ltvRatio: "52%",
     borrowCapacity: "37,521.01",
     availableToBorrow: "7,544.06",
   },
