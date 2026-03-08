@@ -21,7 +21,7 @@ export default function SavingsPage() {
   return (
     <div className="max-w-2xl">
       {/* Header */}
-      <h1 className="text-[2.25rem] font-bold leading-tight">Saving</h1>
+      <h1 className="text-[2.25rem] font-bold leading-tight">Savings</h1>
 
       {/* Tab + Actions Row */}
       <div className="flex items-center justify-between mt-6">
@@ -60,7 +60,15 @@ export default function SavingsPage() {
           </span>
         </div>
         <p className="mt-3 font-mono text-[2.25rem] font-bold leading-tight tracking-tight">
-          {isXrp ? `${savings.xrp.earning} XRP` : `$${savings.rlusd.earning}`}
+          {isXrp ? (
+            `${savings.xrp.earning} XRP`
+          ) : (
+            <>
+              {savings.rlusd.earning}{" "}
+              <Image src="/rlusd.svg" alt="RLUSD" width={36} height={36} className="inline-block h-[2.25rem] w-[2.25rem] -translate-y-[1px] ml-1.5 mr-0.5" />
+              RLUSD
+            </>
+          )}
         </p>
         {isXrp && (
           <p className="mt-1 text-sm text-[var(--text-tertiary)] font-mono">
