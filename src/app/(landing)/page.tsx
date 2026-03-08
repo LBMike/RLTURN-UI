@@ -1,4 +1,5 @@
 import LandingHeader from "@/components/landing/LandingHeader";
+import VideoBanner from "@/components/landing/VideoBanner";
 import HeroSection from "@/components/landing/HeroSection";
 import CustodySection from "@/components/landing/CustodySection";
 import BorrowingSection from "@/components/landing/BorrowingSection";
@@ -11,6 +12,7 @@ export default function LandingPage() {
     <>
       <LandingHeader />
       <main>
+        <VideoBanner />
         <HeroSection />
         <CustodySection />
         <BorrowingSection />
