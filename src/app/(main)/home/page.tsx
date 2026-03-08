@@ -94,11 +94,9 @@ export default function HomePage() {
           <p className="font-mono text-sm font-medium">
             ${isXrp ? xrp.availableUsd : rlusd.available}
           </p>
-          {isXrp && (
-            <p className="text-xs text-[var(--text-tertiary)]">
-              {xrp.available} XRP
-            </p>
-          )}
+          <p className="text-xs text-[var(--text-tertiary)]">
+            {isXrp ? `${xrp.available} XRP` : `${rlusd.available} RLUSD`}
+          </p>
         </div>
       </div>
 
@@ -126,9 +124,16 @@ export default function HomePage() {
           <TrendingUp className="w-5 h-5 text-[var(--text-tertiary)]" />
           <span className="text-sm text-[var(--text-primary)]">Saving</span>
         </div>
-        <p className="font-mono text-sm font-medium">
-          {isXrp ? "$0" : `$${rlusd.savings}`}
-        </p>
+        <div className="text-right">
+          <p className="font-mono text-sm font-medium">
+            {isXrp ? "$0" : `$${rlusd.savings}`}
+          </p>
+          {!isXrp && (
+            <p className="text-xs text-[var(--text-tertiary)]">
+              {rlusd.savings} RLUSD
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
