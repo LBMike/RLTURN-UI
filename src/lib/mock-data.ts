@@ -41,7 +41,7 @@ export const mockData = {
     collateralValue: "3,510.00",
     collateralXrp: "1,500.00",
     ltvRatio: "45",
-    liquidationAt: "85",
+    liquidationAt: "80",
     liquidationProtection: "Active",
   },
   savings: {
