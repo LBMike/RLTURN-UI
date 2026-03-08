@@ -69,8 +69,8 @@ export default function SavingsPage() {
         )}
         <p className="mt-2 text-xs text-[var(--text-tertiary)]">
           Custodied by
-          <Image src="/ripple-custody.svg" alt="Ripple" width={60} height={16} className="inline-block h-4 w-auto ml-2 mr-2" />
-          <Image src="/zodia.svg" alt="Zodia" width={60} height={16} className="inline-block h-4 w-auto" />
+          <Image src="/ripple-custody.svg" alt="Ripple" width={90} height={24} className="inline-block h-6 w-auto ml-2 mr-2" />
+          <Image src="/zodia.svg" alt="Zodia" width={90} height={24} className="inline-block h-6 w-auto" />
         </p>
       </div>
 
