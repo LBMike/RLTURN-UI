@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const features = [
@@ -24,15 +25,11 @@ function SavingsMockupCard() {
       {/* XRP / RLUSD Tabs */}
       <div className="mt-4 flex items-center gap-2">
         <div className="flex items-center gap-1.5 rounded-full bg-primary-dark px-4 py-2">
-          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white">
-            <span className="text-[8px] font-bold text-primary-dark">X</span>
-          </div>
+          <Image src="/xrp.svg" alt="XRP" width={20} height={20} className="h-5 w-5" />
           <span className="text-sm font-medium text-white">XRP</span>
         </div>
         <div className="flex items-center gap-1.5 rounded-full border border-border px-4 py-2">
-          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary">
-            <span className="text-[8px] font-bold text-white">R</span>
-          </div>
+          <Image src="/rlusd.svg" alt="RLUSD" width={20} height={20} className="h-5 w-5" />
           <span className="text-sm font-medium text-text-secondary">RLUSD</span>
         </div>
       </div>
