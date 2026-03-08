@@ -4,17 +4,30 @@ import { useState } from "react";
 import { Clock, Info, ArrowRight } from "lucide-react";
 import { mockData } from "@/lib/mock-data";
 import { BorrowSheet } from "@/components/borrow/BorrowSheet";
+import { BorrowConfirmSheet } from "@/components/borrow/BorrowConfirmSheet";
 
 export default function LineOfCreditPage() {
   const loc = mockData.lineOfCredit;
   const [borrowOpen, setBorrowOpen] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [borrowAmount, setBorrowAmount] = useState("");
 
   return (
     <div className="max-w-[960px]">
       <BorrowSheet
         open={borrowOpen}
         onClose={() => setBorrowOpen(false)}
-        onContinue={() => setBorrowOpen(false)}
+        onContinue={(amount) => {
+          setBorrowAmount(amount);
+          setBorrowOpen(false);
+          setConfirmOpen(true);
+        }}
+      />
+      <BorrowConfirmSheet
+        open={confirmOpen}
+        amount={borrowAmount}
+        onClose={() => setConfirmOpen(false)}
+        onConfirm={() => setConfirmOpen(false)}
       />
 
       {/* Header row */}

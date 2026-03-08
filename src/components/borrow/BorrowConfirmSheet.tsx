@@ -84,6 +84,14 @@ export function BorrowConfirmSheet({
               </div>
             </div>
           </div>
+
+          {/* Insufficient collateral warning */}
+          <p className="mt-5 text-sm">
+            <span className="text-error">Insufficient collateral.</span>{" "}
+            <button type="button" className="font-medium underline underline-offset-2 text-text-primary hover:text-primary-dark">
+              Add more XRP
+            </button>
+          </p>
         </div>
 
         <div className="px-6 pb-6">
