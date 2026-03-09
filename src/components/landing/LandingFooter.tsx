@@ -131,15 +131,14 @@ export default function LandingFooter() {
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           {/* Logo + Description */}
           <div className="max-w-xs">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center">
               <Image
-                src="/logo.webp"
+                src="/logo-symbol.png"
                 alt="RLTURN Logo"
-                width={32}
-                height={32}
-                className="h-8 w-8 brightness-0 invert"
+                width={1344}
+                height={768}
+                className="h-10 w-auto object-contain mix-blend-screen"
               />
-              <span className="text-lg font-bold text-white">RLTURN</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-[#94A3B8]">
               Institutional-grade XRP-backed lending and savings. Borrow RLUSD,

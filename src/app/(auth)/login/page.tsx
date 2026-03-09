@@ -13,17 +13,15 @@ export default function LoginPage() {
       <div className="bg-white rounded-xl shadow-lg p-8 sm:p-10">
         {/* Logo + Brand */}
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center">
             <Image
-              src="/logo.webp"
+              src="/logo-symbol.png"
               alt="RLTURN"
-              width={48}
-              height={48}
+              width={1344}
+              height={768}
+              className="h-12 w-auto object-contain"
               priority
             />
-            <span className="text-[22px] font-bold tracking-tight text-[#0F172A]">
-              RLTURN
-            </span>
           </div>
         </div>
 

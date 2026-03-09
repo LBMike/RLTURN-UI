@@ -11,18 +11,15 @@ export default function LandingHeader() {
         style={{ boxShadow: "0 18px 45px -34px rgba(15,23,42,0.45)" }}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center">
           <Image
-            src="/logo.webp"
+            src="/logo-symbol.png"
             alt="RLTURN Logo"
-            width={40}
-            height={40}
-            className="h-8 w-8 rounded-full md:h-9 md:w-9"
+            width={1344}
+            height={768}
+            className="h-10 w-auto object-contain mix-blend-screen md:h-11"
             priority
           />
-          <span className="text-base font-semibold tracking-[0.02em] text-white md:text-lg">
-            RLTURN
-          </span>
         </Link>
 
         {/* Navigation Actions */}

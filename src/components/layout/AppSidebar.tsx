@@ -8,6 +8,7 @@ import {
   TrendingUp,
   Banknote,
   CreditCard,
+  Shield,
   Settings,
 } from "lucide-react";
 
@@ -16,6 +17,7 @@ const navItems = [
   { href: "/savings", label: "Savings", icon: TrendingUp },
   { href: "/borrow", label: "Borrow", icon: Banknote },
   { href: "/line-of-credit", label: "Line of Credit", icon: CreditCard },
+  { href: "/transparency", label: "Transparency", icon: Shield },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
@@ -25,15 +27,15 @@ export default function AppSidebar() {
   return (
     <aside className="fixed left-0 top-0 z-40 flex h-screen w-60 flex-col border-r border-border bg-background">
       {/* Logo */}
-      <div className="flex items-center gap-3 p-6">
+      <div className="flex items-center p-6">
         <Image
-          src="/logo.webp"
+          src="/logo-symbol.png"
           alt="RLTURN"
-          width={32}
-          height={32}
-          className="h-8 w-8"
+          width={1344}
+          height={768}
+          className="h-14 w-auto object-contain"
+          priority
         />
-        <span className="text-lg font-bold text-primary-dark">RLTURN</span>
       </div>
 
       {/* Navigation */}
